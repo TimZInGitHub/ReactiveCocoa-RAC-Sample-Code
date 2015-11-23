@@ -58,7 +58,15 @@
 
 }
 
-- (void)observeEvent;
+/**
+ *  RAC监听事件
+ */
+- (void)observeEvent
+{
+    [[self.buttion rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        TZLog(@"按钮被点击了");
+    }];
+}
 
 #pragma mark -
 /**
