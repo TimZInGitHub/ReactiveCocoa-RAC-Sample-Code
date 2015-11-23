@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "NSObject+TZCalculate.h"
+#import "TZCalculateManager.h"
+
 
 @interface ViewController ()
 
@@ -17,6 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self calculate];
+}
+
+
+/**
+ *  链式编程示例
+ */
+- (void)calculate
+{
+    int result = [NSObject tz_makeCalculate:^(TZCalculateManager *mgr) {
+        mgr.add(5).add(3);
+    }];
+    TZLog(@"%d", result);
 }
 
 - (void)didReceiveMemoryWarning {
