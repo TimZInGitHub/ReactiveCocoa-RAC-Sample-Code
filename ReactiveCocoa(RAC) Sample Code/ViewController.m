@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet TZRedView *redView;
 @property (weak, nonatomic) IBOutlet UIButton *buttion;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 
 @end
@@ -61,8 +62,78 @@
     
     //RAC监听事件
     [self observeTextField];
+    
+    //处理多个请求，都返回结果的时候，统一做处理.
+    [self resolveRequests];
+    
+    //common macro
+    [self racCommonMacro];
 
 }
+
+- (void)racCommonMacro
+{
+    /**
+     * RAC(TARGET, [KEYPATH, [NIL_VALUE]]):用于给某个对象的某个属性绑定。
+     [_textField.rac_textSignal subscribeNext:^(id x) {
+     
+            _label.text = x;
+         }];
+     
+      用来给某个对象的某个属性绑定信号,只要产生信号内容,就会把内容给属性赋值
+     */
+    RAC(_label,text) = _textField.rac_textSignal;
+    
+    
+    /**
+     *  RACObserve(TARGET, KEYPATH)
+     *
+     *  @param TARGET       监听的对象
+     *  @param KEYPATH      监听的值
+     *
+     *  @return 返回的是信号
+     */
+    [RACObserve(self.view, backgroundColor) subscribeNext:^(id x) {
+        TZLog(@"常用宏%@", x);
+    }];
+}
+
+#pragma mark - 
+/**
+ *  处理多个请求，都返回结果的时候，统一做处理.
+ */
+- (void)resolveRequests
+{
+    RACSignal *request1 = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"发送请求1"];
+        return nil;
+    }];
+    RACSignal *request2 = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [subscriber sendNext:@"发送请求1"];
+        return nil;
+    }];
+    
+    [self rac_liftSelector:@selector(updateUIWithR1:r2:) withSignalsFromArray:@[request1, request2]];
+    
+    /**
+     *   @weakify(Obj)和@strongify(Obj),一般两个都是配套使用,解决循环引用问题.
+     */
+    
+    /**
+     *  把参数中的数据包装成元组
+     RACTuple *tuple = RACTuplePack(@"xmg",@20);
+     
+      解包元组，会把元组的值，按顺序给参数里面的变量赋值
+      name = @"xmg" age = @20
+     RACTupleUnpack(NSString *name,NSNumber *age) = tuple;
+     */
+}
+
+- (void)updateUIWithR1:(id)data r2:(id)data2
+{
+    TZLog(@"更新UI %@, %@", data, data2);
+}
+
 #pragma mark - 
 /**
  *  RAC监听事件

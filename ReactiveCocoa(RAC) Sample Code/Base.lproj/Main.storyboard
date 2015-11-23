@@ -48,11 +48,19 @@
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6d8-rZ-1XA">
+                                <rect key="frame" x="29" y="276" width="113" height="21"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="buttion" destination="Hpe-kw-wCA" id="Rw0-18-Z1H"/>
+                        <outlet property="label" destination="6d8-rZ-1XA" id="sdm-Az-6Vp"/>
                         <outlet property="redView" destination="Cap-Q3-kR0" id="5za-Le-LZr"/>
                         <outlet property="textField" destination="RHO-0M-b19" id="8xR-NY-v4R"/>
                     </connections>
