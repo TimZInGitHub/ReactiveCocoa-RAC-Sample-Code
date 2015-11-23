@@ -19,6 +19,7 @@
 		221C69001C02FBBA00B83462 /* NSObject+TZCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C68FF1C02FBBA00B83462 /* NSObject+TZCalculate.m */; };
 		221C69031C03156300B83462 /* flags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 221C69021C03156300B83462 /* flags.plist */; };
 		221C69061C031F1A00B83462 /* TZFlagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C69051C031F1A00B83462 /* TZFlagModel.m */; };
+		221C69111C03258E00B83462 /* TZRedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C69101C03258E00B83462 /* TZRedView.m */; };
 		D8F12C114782E0F23481F857 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D96C7E667FE8A5C4142C53B /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		221C69021C03156300B83462 /* flags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flags.plist; sourceTree = "<group>"; };
 		221C69041C031F1A00B83462 /* TZFlagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TZFlagModel.h; path = "RAC Class/TZFlagModel.h"; sourceTree = "<group>"; };
 		221C69051C031F1A00B83462 /* TZFlagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TZFlagModel.m; path = "RAC Class/TZFlagModel.m"; sourceTree = "<group>"; };
+		221C690F1C03258E00B83462 /* TZRedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TZRedView.h; path = "RAC Class/TZRedView.h"; sourceTree = "<group>"; };
+		221C69101C03258E00B83462 /* TZRedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TZRedView.m; path = "RAC Class/TZRedView.m"; sourceTree = "<group>"; };
 		6D96C7E667FE8A5C4142C53B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A251E02B041E4E1E26B03BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE71AC3394C6A88101E24F4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 			children = (
 				221C69041C031F1A00B83462 /* TZFlagModel.h */,
 				221C69051C031F1A00B83462 /* TZFlagModel.m */,
+				221C690F1C03258E00B83462 /* TZRedView.h */,
+				221C69101C03258E00B83462 /* TZRedView.m */,
 			);
 			name = "RAC Class";
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				221C69111C03258E00B83462 /* TZRedView.m in Sources */,
 				221C68CD1C02F47100B83462 /* ViewController.m in Sources */,
 				221C68CA1C02F47100B83462 /* AppDelegate.m in Sources */,
 				221C68FD1C02FA7100B83462 /* TZCalculateManager.m in Sources */,

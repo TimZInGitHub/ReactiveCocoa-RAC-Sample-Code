@@ -10,9 +10,15 @@
 #import "NSObject+TZCalculate.h"
 #import "TZCalculateManager.h"
 #import "TZFlagModel.h"
+#import "TZRedView.h"
 
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet TZRedView *redView;
+@property (weak, nonatomic) IBOutlet UIButton *buttion;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 
 @end
 
@@ -37,8 +43,15 @@
     
     //字典转模型;
     [self modelFormDict];
+    
+    //RACSubject替换代理
+    self.redView.delegateSignal = [RACSubject subject];
+    [self.redView.delegateSignal subscribeNext:^(id x) {
+        self.view.backgroundColor = TZRandomColor;
+    }];
 }
 
+#pragma mark -
 /**
  *  RAC字典转模型
  */
