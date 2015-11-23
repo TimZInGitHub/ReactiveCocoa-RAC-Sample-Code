@@ -55,9 +55,37 @@
     
     //RAC监听事件
     [self observeEvent];
+    
+    //RAC代替通知
+    [self replaceNotification];
+    
+    //RAC监听事件
+    [self observeTextField];
 
 }
+#pragma mark - 
+/**
+ *  RAC监听事件
+ */
+- (void)observeTextField
+{
+    [_textField.rac_textSignal subscribeNext:^(id x) {
+        TZLog(@"文字改变了 %@", x);
+    }];
+}
 
+#pragma mark - 
+/**
+ *  RAC代替通知
+ */
+- (void)replaceNotification
+{
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillShowNotification object:nil] subscribeNext:^(id x) {
+        TZLog(@"键盘弹出了");
+    }];
+}
+
+#pragma mark -
 /**
  *  RAC监听事件
  */
