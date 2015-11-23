@@ -43,11 +43,59 @@
     
     //字典转模型;
     [self modelFormDict];
+
+    //RACSubject替换代理1
+    [self replaceDelegate1];
     
-    //RACSubject替换代理
+    //RAC替换代理2
+    [self replaceDelegate2];
+    
+    //RAC替换KVO
+    [self replaceKVO];
+    
+    //RAC监听事件
+    [self observeEvent];
+
+}
+
+- (void)observeEvent;
+
+#pragma mark -
+/**
+ *  RAC替换KVO;
+ */
+- (void)replaceKVO
+{
+    [[self.view rac_valuesAndChangesForKeyPath:@"backgroundColor" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(id x) {
+        TZLog(@"KVO, %@", self.view.backgroundColor);
+    }];
+}
+
+#pragma mark -
+/**
+ *  RAC代替代理2
+    rac_signalForSelector:把调用某个对象的方法的信息转换成信号，就要调用这个方法，就会发送信号。
+ */
+- (void)replaceDelegate2
+{
+    [[self.redView rac_signalForSelector:@selector(buttionClick:)] subscribeNext:^(id x) {
+        TZLog(@"替代代理2");
+    }];
+}
+
+/**
+ *  RACSubject替换代理
+ 1,给事件接受者添加一个RACSubject代替代理。
+ 2,在事件接收者的实现中 发送信号 sendNext:
+ 3,在事件执行者中 创建接受者的信号  XXX.delegateSignal = [RACSubject subject];
+ 4,最后 订阅代理信号 subscribeNext:
+ */
+- (void)replaceDelegate1
+{
     self.redView.delegateSignal = [RACSubject subject];
     [self.redView.delegateSignal subscribeNext:^(id x) {
         self.view.backgroundColor = TZRandomColor;
+        TZLog(@"替代代理1");
     }];
 }
 

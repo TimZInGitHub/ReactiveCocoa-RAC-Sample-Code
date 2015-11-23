@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) RACSubject *delegateSignal;
 
+- (IBAction)buttionClick:(UIButton *)sender;
+
 @end
