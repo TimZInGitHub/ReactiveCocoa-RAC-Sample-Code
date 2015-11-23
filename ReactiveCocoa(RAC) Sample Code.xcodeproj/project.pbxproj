@@ -123,6 +123,7 @@
 		221C68C41C02F47100B83462 /* ReactiveCocoa(RAC) Sample Code */ = {
 			isa = PBXGroup;
 			children = (
+				221C69011C0305E300B83462 /* RAC Class */,
 				221C68F81C02F82800B83462 /* Block */,
 				221C68C81C02F47100B83462 /* AppDelegate.h */,
 				221C68C91C02F47100B83462 /* AppDelegate.m */,
@@ -181,6 +182,13 @@
 				221C68FF1C02FBBA00B83462 /* NSObject+TZCalculate.m */,
 			);
 			name = "链式编程";
+			sourceTree = "<group>";
+		};
+		221C69011C0305E300B83462 /* RAC Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "RAC Class";
 			sourceTree = "<group>";
 		};
 		23B008E59A22FBE4F4C8F34F /* Pods */ = {
