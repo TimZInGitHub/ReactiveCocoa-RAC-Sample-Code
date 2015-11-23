@@ -17,6 +17,8 @@
 		221C68EB1C02F47100B83462 /* ReactiveCocoa_RAC__Sample_CodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C68EA1C02F47100B83462 /* ReactiveCocoa_RAC__Sample_CodeUITests.m */; };
 		221C68FD1C02FA7100B83462 /* TZCalculateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C68FC1C02FA7100B83462 /* TZCalculateManager.m */; };
 		221C69001C02FBBA00B83462 /* NSObject+TZCalculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C68FF1C02FBBA00B83462 /* NSObject+TZCalculate.m */; };
+		221C69031C03156300B83462 /* flags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 221C69021C03156300B83462 /* flags.plist */; };
+		221C69061C031F1A00B83462 /* TZFlagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 221C69051C031F1A00B83462 /* TZFlagModel.m */; };
 		D8F12C114782E0F23481F857 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D96C7E667FE8A5C4142C53B /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,9 @@
 		221C68FC1C02FA7100B83462 /* TZCalculateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TZCalculateManager.m; path = "Block/链式编程/TZCalculateManager.m"; sourceTree = "<group>"; };
 		221C68FE1C02FBBA00B83462 /* NSObject+TZCalculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+TZCalculate.h"; path = "Block/链式编程/NSObject+TZCalculate.h"; sourceTree = "<group>"; };
 		221C68FF1C02FBBA00B83462 /* NSObject+TZCalculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+TZCalculate.m"; path = "Block/链式编程/NSObject+TZCalculate.m"; sourceTree = "<group>"; };
+		221C69021C03156300B83462 /* flags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flags.plist; sourceTree = "<group>"; };
+		221C69041C031F1A00B83462 /* TZFlagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TZFlagModel.h; path = "RAC Class/TZFlagModel.h"; sourceTree = "<group>"; };
+		221C69051C031F1A00B83462 /* TZFlagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TZFlagModel.m; path = "RAC Class/TZFlagModel.m"; sourceTree = "<group>"; };
 		6D96C7E667FE8A5C4142C53B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A251E02B041E4E1E26B03BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EE71AC3394C6A88101E24F4C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		221C68C51C02F47100B83462 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				221C69021C03156300B83462 /* flags.plist */,
 				221C68C61C02F47100B83462 /* main.m */,
 				221C68F91C02F85E00B83462 /* PrefixHeader.pch */,
 			);
@@ -187,6 +193,8 @@
 		221C69011C0305E300B83462 /* RAC Class */ = {
 			isa = PBXGroup;
 			children = (
+				221C69041C031F1A00B83462 /* TZFlagModel.h */,
+				221C69051C031F1A00B83462 /* TZFlagModel.m */,
 			);
 			name = "RAC Class";
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 			files = (
 				221C68D51C02F47100B83462 /* LaunchScreen.storyboard in Resources */,
 				221C68D21C02F47100B83462 /* Assets.xcassets in Resources */,
+				221C69031C03156300B83462 /* flags.plist in Resources */,
 				221C68D01C02F47100B83462 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +399,7 @@
 				221C68FD1C02FA7100B83462 /* TZCalculateManager.m in Sources */,
 				221C69001C02FBBA00B83462 /* NSObject+TZCalculate.m in Sources */,
 				221C68C71C02F47100B83462 /* main.m in Sources */,
+				221C69061C031F1A00B83462 /* TZFlagModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NSObject+TZCalculate.h"
 #import "TZCalculateManager.h"
+#import "TZFlagModel.h"
 
 
 @interface ViewController ()
@@ -22,11 +23,70 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self calculate];
+    
+    //RAC 基本类的使用
     [self signalSample];
     [self subjectSample];
     [self replaySubjectSample];
+    
+    //RAC遍历数组
+    [self arr];
+    
+    //RAC遍历字典;
+    [self dict];
+    
+    //字典转模型;
+    [self modelFormDict];
 }
 
+/**
+ *  RAC字典转模型
+ */
+- (void)modelFormDict
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"flags.plist" ofType:nil];
+    
+    // map:映射的意思，目的：把原始值value映射成一个新值
+    // array: 把集合转换成数组
+    // 底层实现：当信号被订阅，会遍历集合中的原始值，映射成新值，并且保存到新的数组里。
+    NSArray *dictArray = [NSArray arrayWithContentsOfFile:filePath];
+    
+    NSArray *flags = [[dictArray.rac_sequence map:^id(id value) {
+        return [TZFlagModel flagWithDict:value];
+    }] array];
+}
+
+/**
+ *  RAC遍历字典
+ */
+- (void)dict
+{
+    NSDictionary *dict = @{@"name": @"TZ", @"age": @"26"};
+    
+    [dict.rac_sequence.signal subscribeNext:^(RACTuple *x) {
+        
+        RACTupleUnpack(NSString *key, NSString *value) = x;
+        
+        TZLog(@"%@: %@", key, value);
+    }];
+}
+
+/**
+ *  RAC遍历数组
+ */
+- (void)arr
+{
+    NSArray *numbers = @[@1, @2, @3, @4];
+    
+    // 第一步: 把数组转换成集合RACSequence numbers.rac_sequence
+    // 第二步: 把集合RACSequence转换RACSignal信号类,numbers.rac_sequence.signal
+    // 第三步: 订阅信号，激活信号，会自动把集合中的所有值，遍历出来。
+    [numbers.rac_sequence.signal subscribeNext:^(id x) {
+        TZLog(@"%@", x);
+    }];
+}
+
+#pragma mark -
 /**
  *  RACReplaySubject使用示例
     RACReplaySubject:重复提供信号类，RACSubject的子类。
@@ -130,6 +190,7 @@
 //    [disposable dispose];
 }
 
+#pragma mark -
 /**
  *  链式编程示例
  */
